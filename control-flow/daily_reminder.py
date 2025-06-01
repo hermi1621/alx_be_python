@@ -6,17 +6,16 @@ def main():
     priority = input("Enter priority (high/medium/low): ").lower()
     time_bound = input("Is this task time-bound? (yes/no): ").lower()
     
-    # Process priority with match-case
-    match priority:
-        case "high":
-            reminder = f"❗ HIGH PRIORITY: {task}"
-        case "medium":
-            reminder = f"⚠️ MEDIUM PRIORITY: {task}"
-        case "low":
-            reminder = f"🔹 LOW PRIORITY: {task}"
-        case _:
-            print("Invalid priority level. Using default reminder.")
-            reminder = f"REMINDER: {task}"
+    # Process priority with if-elif-else
+    if priority == "high":
+        reminder = f"❗ HIGH PRIORITY: {task}"
+    elif priority == "medium":
+        reminder = f"⚠️ MEDIUM PRIORITY: {task}"
+    elif priority == "low":
+        reminder = f"🔹 LOW PRIORITY: {task}"
+    else:
+        print("Invalid priority level. Using default reminder.")
+        reminder = f"REMINDER: {task}"
     
     # Check time sensitivity
     if time_bound == "yes":
