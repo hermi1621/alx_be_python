@@ -1,27 +1,32 @@
-# Prompt user for task details
-task = input("Enter your task: ")
-priority = input("Priority (high/medium/low): ").lower()
-time_bound = input("Is it time-bound? (yes/no): ").lower()
+# daily_reminder.py
 
-# Initialize the reminder
-reminder = ""
+def main():
+    # Prompt for task details
+    task = input("Enter your task: ")
+    priority = input("Enter priority (high/medium/low): ").lower()
+    time_bound = input("Is this task time-bound? (yes/no): ").lower()
+    
+    # Process priority with match-case
+    match priority:
+        case "high":
+            reminder = f"❗ HIGH PRIORITY: {task}"
+        case "medium":
+            reminder = f"⚠️ MEDIUM PRIORITY: {task}"
+        case "low":
+            reminder = f"🔹 LOW PRIORITY: {task}"
+        case _:
+            print("Invalid priority level. Using default reminder.")
+            reminder = f"REMINDER: {task}"
+    
+    # Check time sensitivity
+    if time_bound == "yes":
+        reminder += " ⏰ (Time-sensitive! Act now!)"
+    elif time_bound != "no":
+        print("Assuming task is not time-bound.")
+    
+    # Print final reminder
+    print("\n--- Your Reminder ---")
+    print(reminder)
 
-# Match case based on priority
-match priority:
-    case "high":
-        reminder = f"'{task}' is a high priority task"
-    case "medium":
-        reminder = f"'{task}' is a medium priority task"
-    case "low":
-        reminder = f"'{task}' is a low priority task"
-    case _:
-        reminder = f"'{task}' has an unspecified priority level"
-
-# Add time-sensitive condition
-if time_bound == "yes":
-    reminder += " that requires immediate attention today!"
-else:
-    reminder += ". Consider completing it when you have free time."
-
-# Final output
-print(f"\nReminder: {reminder}")
+if name == "main":
+    main()
