@@ -1,17 +1,18 @@
-# weather_advice.py
+# Ask the user to input the current weather
+weather = input("What's the weather like today? (sunny/rainy/cold): ").lower()
 
-def get_weather_recommendation(weather):
-    recommendations = {
-        'sunny': 'Wear a t-shirt and sunglasses.',
-        'rainy': "Don't forget your umbrella and a raincoat.",
-        'cold': 'Make sure to wear a warm coat and a scarf.'
-    }
-    return recommendations.get(weather.lower(), "Sorry, I don't have recommendations for this weather.")
+# Check for the 'sunny' condition
+if weather == "sunny":
+    print("Wear a t-shirt and sunglasses.")
 
-def main():
-    weather_input = input("What's the weather like today? (sunny/rainy/cold): ")
-    recommendation = get_weather_recommendation(weather_input)
-    print(recommendation)
+# Check for the 'rainy' condition
+elif weather == "rainy":
+    print("Don't forget your umbrella and a raincoat.")
 
-if name == "main":
-    main()
+# Check for the 'cold' condition
+elif weather == "cold":
+    print("Make sure to wear a warm coat and a scarf.")
+
+# Handle unexpected input
+else:
+    print("Sorry, I don't have recommendations for this weather.")
