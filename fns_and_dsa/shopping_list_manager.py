@@ -6,11 +6,13 @@ def display_menu():
     print("4. Exit")
 
 def main():
-    shopping_list = []  # ✅ list (array) declared
+    shopping_list = []  # ✅ This is a list
+
     while True:
-        display_menu()  # ✅ function is called
+        display_menu()  # ✅ This function is called
+
         try:
-            choice = int(input("Enter your choice (1-4): "))  # ✅ input is an integer
+            choice = int(input("Enter your choice (1-4): "))  # ✅ Input is a number
         except ValueError:
             print("Invalid input. Please enter a number from 1 to 4.")
             continue
@@ -34,8 +36,8 @@ def main():
         elif choice == 3:
             if shopping_list:
                 print("\nYour Shopping List:")
-                for idx, item in enumerate(shopping_list, start=1):
-                    print(f"{idx}. {item}")
+                for index, item in enumerate(shopping_list, start=1):
+                    print(f"{index}. {item}")
             else:
                 print("Your shopping list is empty.")
 
